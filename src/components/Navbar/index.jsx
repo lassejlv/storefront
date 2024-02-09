@@ -1,27 +1,78 @@
-import React from "react";
-import "./style.css"
+import React, { useEffect, useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoCloseSharp } from "react-icons/io5";
+import { LogoLetters, NavbarItems } from "../../mock";
+import "./style.css";
 
 export default function Navbar() {
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 1050);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobileView(window.innerWidth < 1050);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    // we call the function once to set the initial value
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <nav>
-      <h1>BaliAbba</h1>
+      <h1 className="logo">
+        <a href="/">
+          {LogoLetters.map((letter, index) => (
+            <span key={index} style={{ color: letter.color }}>
+              {letter.letter}
+            </span>
+          ))}
+        </a>
+      </h1>
 
-      <div className="search">
-        <input type="text" placeholder="Find lige det du mangler" />
-        <button>Search</button>
-      </div>
+      {!isMobileView ? (
+        <>
+          <div className="search">
+            <input type="text" placeholder="Find lige det du mangler" />
+          </div>
 
-      <ul className="links">
-        <li>
-          <a href="#">Find Butik</a>
-        </li>
-        <li>
-          <a href="#">Login</a>
-        </li>
-        <li>
-          <a href="#">Indkøbskurv</a>
-        </li>
-      </ul>
+          <ul className="links">
+            {NavbarItems.map((item, index) => (
+              <li key={index}>
+                {item.icon}
+                <a href={item.path}>{item.name}</a>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <>
+          {showMobileMenu ? (
+            <IoCloseSharp
+              className="hamburger"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+            />
+          ): (
+            <RxHamburgerMenu
+              className="hamburger"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+            />
+          )}
+        </>
+      )}
+
+      {showMobileMenu && (
+        <ul className="mobile-links">
+          {NavbarItems.map((item, index) => (
+            <li key={index}>
+              {item.icon}
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   );
 }

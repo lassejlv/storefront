@@ -1,0 +1,20 @@
+
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-default {
+    background-color: #e7e7e6;
+    color: #010001;
+}
+
+.btn-default:hover {
+    background-color: #cececc;
+    color: #010001;
+}
