@@ -7,6 +7,7 @@ import FindButik from "./components/FindButik/index.jsx";
 import NotFound from "./components/NotFound/index.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
+import Categories from "./components/Categories/index.jsx";
 
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/find-butik",
     element: <FindButik />,
+  },
+  {
+    path: "/categories",
+    element: <Categories />,
   },
   {
     path: "*",

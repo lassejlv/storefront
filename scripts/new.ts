@@ -1,7 +1,13 @@
 import inquirer from 'inquirer';
 import fs from 'fs';
 
-const questions = [
+type Questions = {
+  type: "input";
+  name: string;
+  message: string;
+}
+
+const questions: Questions[] = [
     {
         type: 'input',
         name: 'componentName',

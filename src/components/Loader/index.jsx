@@ -1,15 +1,23 @@
 import React from "react";
-import "./style.css";
 import { SpinnerCircular } from "spinners-react";
+import "./style.css";
 
-export default function Loader() {
+export default function Loader({ loading, center, children }) {
   return (
-    <SpinnerCircular
-      size={50}
-      thickness={100}
-      speed={150}
-      color="#333333"
-      secondaryColor="#dddddd"
-    />
+    <>
+      {loading ? (
+        <div className={center ? "center" : ""}>
+          <SpinnerCircular
+            size={50}
+            thickness={100}
+            speed={150}
+            color="#333333"
+            secondaryColor="#dddddd"
+          />
+        </div>
+      ) : (
+        <>{children}</>
+      )}
+    </>
   );
 }

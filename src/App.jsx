@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import { API_URL } from "./config";
 import { toast } from "sonner";
+import Category from "./components/Category";
 import "./App.css";
 
 export default function App() {
@@ -24,7 +25,7 @@ export default function App() {
 
       setTimeout(() => {
         setIsLoading(false);
-      }, 300);
+      }, 200);
     };
 
     const fetchCategories = async () => {
@@ -45,40 +46,9 @@ export default function App() {
   }, []);
   return (
     <>
-      {isLoading ? (
-        <div className="center">
-          <Loader />
-        </div>
-      ) : (
-        <>
-          <div className="categories-container">
-            {categories
-            .splice(0, 7)
-            .map((category, index) => (
-              <div className="category" key={index} onClick={() => window.location.href = `/categories?value=${category}`}>
-                  {category}
-              </div>
-            ))}
-          </div>
-
-          <div className="products-container">
-            <h1>
-              Anbefalet til dig
-            </h1>
-            <div className="products">
-              {products
-              .splice(0, 4)
-              .map((product, index) => (
-                <div className="product" key={index}>
-                  <img src={product.image} alt={product.name} />
-                  <h2>{product.name}</h2>
-                  <p>{product.price} kr.</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+      <Loader loading={isLoading} center={true}>
+        <Category categories={categories ?? []} />
+      </Loader>
     </>
   );
 }
