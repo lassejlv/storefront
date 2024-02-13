@@ -8,6 +8,7 @@ import NotFound from "./components/NotFound/index.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
 import Categories from "./components/Categories/index.jsx";
+import Search from "./components/Search/index.jsx";
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/categories",
     element: <Categories />,
+  },
+  {
+    path: "/search",
+    element: <Search />,
   },
   {
     path: "*",

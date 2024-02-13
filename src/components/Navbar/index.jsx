@@ -3,6 +3,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseSharp } from "react-icons/io5";
 import { LogoLetters, NavbarItems } from "../../mock";
 import "./style.css";
+import Searchfield from "../Searchfield";
 
 export default function Navbar() {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 1050);
@@ -35,9 +36,7 @@ export default function Navbar() {
 
       {!isMobileView ? (
         <>
-          <div className="search">
-            <input type="text" placeholder="Find lige det du mangler" />
-          </div>
+          <Searchfield />
 
           <ul className="links">
             {NavbarItems.map((item, index) => (
