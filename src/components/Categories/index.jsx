@@ -34,10 +34,10 @@ export default function Categories() {
       <div className="categories">
         <h1>{value}</h1>
         <div className="category-products">
-          {categoryProducts.map((product) => (
-            <div key={product.id} className="category-product">
-              <img src={product.image} alt={product.name} />
-              <h2>{product.name}</h2>
+          {categoryProducts.map((product, index) => (
+            <div key={index} className="category-product">
+              <img src={product.images[0]} alt={product.title} />
+              <h2>{product.title}</h2>
               <p>{product.description}</p>
               <p>{product.price} kr.</p>
             </div>

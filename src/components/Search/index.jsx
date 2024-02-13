@@ -42,7 +42,7 @@ export default function Search() {
           {products.map((product, index) => (
             <div key={index} className="product">
               <img src={product.images[0]} alt={product.title} />
-              <h3>{product.titile}</h3>
+              <h3>{product.title}</h3>
               <p>{product.price} kr.</p>
             </div>
           ))}
