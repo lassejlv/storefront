@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import Category from "./components/Category";
 import "./App.css";
 import ProductsList from "./components/ProductsList";
+import HomeHeader from "./components/HomeHeader";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +49,8 @@ export default function App() {
   return (
     <>
       <Loader loading={isLoading} center={true}>
+        <HomeHeader />
+
         <Category categories={categories ?? []} />
         <ProductsList products={products ?? []} />
       </Loader>

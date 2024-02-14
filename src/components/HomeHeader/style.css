@@ -1,0 +1,40 @@
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #232324;
+}
+
+.home-header-title {
+  font-size: 3rem;
+  color: #e7e7e6;
+  margin-bottom: 0.2rem;
+}
+
+.home-header-description {
+  font-size: 1.5rem;
+  color: #818181;
+  margin-bottom: 1rem;
+}
+
+.home-header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .home-header-title {
+    font-size: 2.5rem;
+  }
+  .home-header-description {
+    font-size: 1.2rem;
+  }
+
+  .home-header-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

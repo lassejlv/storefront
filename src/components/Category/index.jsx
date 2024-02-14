@@ -4,12 +4,14 @@ import Button from "../Button";
 
 export default function Category({ categories }) {
   return (
-    <div className="categories-items">
+    <div className="categories-container">
       {categories.map((category, index) => (
         <Button color="light" key={index} onClick={() => (window.location.href = `/categories?value=${category}`)}>
-          {category}
+          #{category}
         </Button>
       ))}
+
+      <hr className="divider" />
     </div>
   );
 }
