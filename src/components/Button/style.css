@@ -18,3 +18,23 @@
     background-color: #cececc;
     color: #010001;
 }
+
+.btn-dark {
+    background-color: #010001;
+    color: #e7e7e6;
+}
+
+.btn-dark:hover {
+    background-color: #010001;
+    color: #e7e7e6;
+}
+
+.btn-light {
+    background-color: #e7e7e6;
+    color: #010001;
+}
+
+.btn-light:hover {
+    background-color: #cececc;
+    color: #010001;
+}

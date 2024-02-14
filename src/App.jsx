@@ -4,6 +4,7 @@ import { API_URL } from "./config";
 import { toast } from "sonner";
 import Category from "./components/Category";
 import "./App.css";
+import ProductsList from "./components/ProductsList";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +49,7 @@ export default function App() {
     <>
       <Loader loading={isLoading} center={true}>
         <Category categories={categories ?? []} />
+        <ProductsList products={products ?? []} />
       </Loader>
     </>
   );
