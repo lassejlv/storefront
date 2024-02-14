@@ -6,6 +6,7 @@ import Category from "./components/Category";
 import "./App.css";
 import ProductsList from "./components/ProductsList";
 import HomeHeader from "./components/HomeHeader";
+import CookieBanner from "./components/CookieBanner";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +54,7 @@ export default function App() {
 
         <Category categories={categories ?? []} />
         <ProductsList products={products ?? []} />
+        <CookieBanner />
       </Loader>
     </>
   );
