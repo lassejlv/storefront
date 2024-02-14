@@ -24,6 +24,12 @@ export default function Searchfield() {
     };
   }, [fieldIsFocused, searchValue]); // Removed unnecessary dependencies
 
+  useEffect(() => {
+    if (window.location.pathname === "/search") {
+      setSearchValue(new URLSearchParams(window.location.search).get("value"));
+    }
+  }, []);
+
   return (
     <div className="search">
       <input

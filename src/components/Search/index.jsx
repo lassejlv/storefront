@@ -40,7 +40,7 @@ export default function Search() {
 
         <div className="products">
           {products.map((product, index) => (
-            <div key={index} className="product">
+            <div key={index} className="product" onClick={() => window.location.href = `/products/${product.id}`}>
               <img src={product.images[0]} alt={product.title} />
               <h3>{product.title}</h3>
               <p>{product.price} kr.</p>

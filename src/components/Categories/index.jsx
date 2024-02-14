@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { API_URL } from "../../config";
-import "./style.css";
 import Loader from "../Loader";
+import "./style.css";
 
 export default function Categories() {
   const [categoryProducts, setCategoryProducts] = useState([]);
@@ -34,8 +34,8 @@ export default function Categories() {
       <div className="categories">
         <h1>{value}</h1>
         <div className="category-products">
-          {categoryProducts.map((product, index) => (
-            <div key={index} className="category-product">
+          {categoryProducts.map((product) => (
+            <div key={product.id} className="category-product" onClick={() => window.location.href = `/products/${product.id}`}>
               <img src={product.images[0]} alt={product.title} />
               <h2>{product.title}</h2>
               <p>{product.description}</p>

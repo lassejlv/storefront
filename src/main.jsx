@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
 import Categories from "./components/Categories/index.jsx";
 import Search from "./components/Search/index.jsx";
+import Product from "./components/Product/index.jsx";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <Search />,
+  },
+  {
+    path: "/products/:id",
+    element: <Product />,
   },
   {
     path: "*",
