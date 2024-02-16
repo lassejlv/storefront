@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import "./style.css";
 import { useParams } from "react-router-dom";
 import { API_URL } from "../../config";
 import { toast } from "sonner";
+import Button from "../Button";
 import Loader from "../Loader";
+import "./style.css";
 
 export default function Product() {
   const { id } = useParams();
@@ -17,19 +18,39 @@ export default function Product() {
       const data = await response.json();
       setProduct(data);
       setIsLoading(false);
-    }
+    };
 
-    fetchProduct()
+    fetchProduct();
   }, []);
 
   return (
     <Loader loading={isLoading} center={true}>
-      <div className="product">
-        <h1>{product.title}</h1>
-        <img src={product.images && product.images[0]} alt={product.title} />
-        <p>{product.price} kr.</p>
-        <p>{product.description}</p>
+      <div className="product-grid-overview">
+        <div className="product-grid-overview-2">
+          {product.images && product.images.length > 1 && (
+            <>
+              {product.images.slice(1).map((image, index) => (
+                <img
+                  key={index}
+                  className="product-overview_image-2"
+                  src={image}
+                  alt={product.title}
+                />
+              ))}
+            </>
+          )}
+         
+        </div>
+        <div>
+          {product.images && product.images.length > 0 && (
+            <img
+              className="product-overview_image"
+              src={product.images[0]}
+              alt={product.title}
+            />
+          )}
+        </div>
       </div>
     </Loader>
-  )
+  );
 }

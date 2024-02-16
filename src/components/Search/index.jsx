@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import Loader from "../Loader";
 import { toast } from "sonner";
 import { API_URL } from "../../config";
+import Button from "../Button";
 import "./style.css";
 
 export default function Search() {
@@ -31,23 +32,40 @@ export default function Search() {
 
   return (
     <Loader loading={isLoading} center={true}>
-      <div className="search">
-        <h1>{value}</h1>
-
+        <section className="products-container">
+        <h1 className="products-title">
+          Søgning: {value}
+        </h1>
         {products.length === 0 && (
-          <p>Ingen produkter fundet</p>
+          <p className="products-empty">
+            Ingen produkter fundet med søgeværdi: {value}
+          </p>
         )}
-
-        <div className="products">
-          {products.map((product, index) => (
-            <div key={index} className="product" onClick={() => window.location.href = `/products/${product.id}`}>
-              <img src={product.images[0]} alt={product.title} />
+        <div className="products-grid">
+          {products.map((product) => (
+            <div key={product.id} className="product">
               <h3>{product.title}</h3>
-              <p>{product.price} kr.</p>
+              <img
+                src={product.images[0]}
+                alt={product.title}
+                className="product-image"
+              />
+
+              <div className="product-bar">
+                <p className="product-price">{product.price} kr.</p>
+                <Button
+                  color="dark"
+                  onClick={() =>
+                    (window.location.href = `/products/${product.id}`)
+                  }
+                >
+                  Læs mere
+                </Button>
+              </div>
             </div>
           ))}
-          </div>
-      </div>
+        </div>
+      </section>
     </Loader>
   )
 }

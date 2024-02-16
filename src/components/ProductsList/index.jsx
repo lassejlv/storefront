@@ -1,6 +1,6 @@
 import React from "react";
-import "./style.css";
 import Button from "../Button";
+import "./style.css";
 
 export default function ProductsList({ products }) {
   return (

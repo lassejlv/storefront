@@ -1,0 +1,21 @@
+.product-grid-overview {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.product-grid-overview-2 {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+.product-overview_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-overview_image-2  {
+    border: 1px solid #000;
+}
